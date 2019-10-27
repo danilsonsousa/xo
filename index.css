@@ -13,18 +13,18 @@
 html,body{
     width: 100%;
     height: 100%;
-    background: #900ecc;
+    background: #2c2430;
 }
 
 .painel{
     width: 100%;
     display: flex;
     columns: 2;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.4);
+    border-bottom: 3px solid #fff;
 }
 
 .player {
-    padding: 10px;
+    padding: 5px;
     flex: 1;
     text-align: center;
     color: #fff;
@@ -80,11 +80,11 @@ html,body{
     width: 400px;
     height: 60px;
     margin: 10px auto;
-    padding: 10px;
-    background: #900ecc;
+    padding: 12px;
+    background: #2c2430;
     border: 3px solid #fff;
     border-radius: 5px;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #ffffff;
     text-align: center;
 }
@@ -98,7 +98,7 @@ html,body{
     opacity: 0;
     transition: all linear 0.3s;
     border-radius: 10px;
-    border: 5px solid #900ecc;
+    border: 5px solid #2c2430;
 }
 
 .match.on {
@@ -176,8 +176,9 @@ html,body{
     padding: 15px;
     border: none;
     background: #ffffff;
-    color: #900ecc;
+    color: #2c2430;
     border-radius: 10px;
     font-size: 1.2em;
     cursor: pointer;
+    font-weight: bold;
 }
