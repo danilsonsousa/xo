@@ -10,4 +10,4 @@ Uma versão futura será criada utilizando recursos de rede para torná-lo mais 
 e intuitivo ao usuário.
 
 # Capturas de telas
-![XO - Jogo da velha](Captura-de-tela-de-xo.png?raw=true "Optional Title")
+![XO - Jogo da velha](xo.png?raw=true "Optional Title")
