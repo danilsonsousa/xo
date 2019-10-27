@@ -14,48 +14,60 @@ html,body{
     width: 100%;
     height: 100%;
     background: #2c2430;
+    display: flex;
+    flex-direction: column;
 }
 
-.painel{
+.game-container {
+    width: 300px;
+    margin: auto;
+}
+
+@media screen and (max-width: 400px){
+    .game-container {
+        width: 100%;
+        padding: 10px;
+    }
+}
+
+.painel {
     width: 100%;
+    padding: 5px;
     display: flex;
     columns: 2;
-    border-bottom: 3px solid #fff;
+    background: #ffffff;
+    border-radius: 10px;
 }
 
 .player {
     padding: 5px;
     flex: 1;
     text-align: center;
-    color: #fff;
-    font-size: 2.6em;
+    color: #2c2430;
+    font-size: 1.6em;
+    border-radius: 10px;
 }
 
 .player .name {
-    font-size: 0.4em;
-}
-
-#player1 {
-    flex: 1;
+    font-size: 0.455em;
 }
 
 .game {
-    width: 400px;
-    height: 400px;
-    margin: auto;
+    width: 100%;
+    height: 300px;
     border: 3px solid #fff;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.4);
 }
 
 .item {
     width: calc(100% / 3);
     height: calc(100% / 3);
     text-align: center;
-    font-size: 6em;
+    font-size: 4em;
     font-weight: 300;
     color: #fff;
 }
@@ -74,17 +86,19 @@ html,body{
 .player.on {
     background: #b81a1a;
     transition: all linear 0.7s;
+    border-radius: 10px;
+    color: #ffffff;
 }
 
 .game-message {
-    width: 400px;
-    height: 60px;
-    margin: 10px auto;
-    padding: 12px;
+    width: 100%;
+    height: 40px;
+    margin: 5px 0;
+    padding: 6px;
     background: #2c2430;
     border: 3px solid #fff;
     border-radius: 5px;
-    font-size: 1.3em;
+    font-size: 1em;
     color: #ffffff;
     text-align: center;
 }
@@ -156,6 +170,7 @@ html,body{
 .try-again {
     width: 100%;
     height: 100%;
+    padding: 20px;
     position: absolute;
     background: rgba(0,0,0,0.4);
     display: flex;
@@ -171,7 +186,7 @@ html,body{
 }
 
 .try-again button {
-    width: 300px;
+    width: 100%;
     margin: auto;
     padding: 15px;
     border: none;

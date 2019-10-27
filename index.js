@@ -110,15 +110,15 @@ game = {
 
         if ($(domItem).text().trim() === '') {
 
+            $(domItem).text(players[this.player].xo);
+            
             if (this.player == 0) {
                 this.player = 1;
-                $('#player1').addClass('on');
             } else {
                 this.player = 0;
-                $('#player0').addClass('on');
             }
 
-            $(domItem).text(players[this.player].xo);
+            $('#player' + this.player).addClass('on');
             $(domItem).addClass('rotate');
             this.total++;
             
@@ -135,9 +135,7 @@ game = {
         //Empate
         if (this.tie) {
             this.message('Deu empate!');
-
-            $('#player0 .score').text(players[0].score += 1);
-            $('#player1 .score').text(players[1].score += 1);
+            $('.player .score').text(players[0].score += 1);
         }
     },
 
