@@ -1,0 +1,183 @@
+
+/* Jogo desenvolvido: */
+/* Copyright 2019 - Danilson Veloso de Sousa. */
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background: #900ecc;
+}
+
+.painel{
+    width: 100%;
+    display: flex;
+    columns: 2;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.4);
+}
+
+.player {
+    padding: 10px;
+    flex: 1;
+    text-align: center;
+    color: #fff;
+    font-size: 2.6em;
+}
+
+.player .name {
+    font-size: 0.4em;
+}
+
+#player1 {
+    flex: 1;
+}
+
+.game {
+    width: 400px;
+    height: 400px;
+    margin: auto;
+    border: 3px solid #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    box-shadow: 0 3px 4px 0 rgba(0,0,0,0.4);
+}
+
+.item {
+    width: calc(100% / 3);
+    height: calc(100% / 3);
+    text-align: center;
+    font-size: 6em;
+    font-weight: 300;
+    color: #fff;
+}
+
+.item-1,.item-2,.item-3,
+.item-4,.item-5,.item-6 {
+    border-bottom: 3px solid #ffffff;
+}
+
+.item-1,.item-2,
+.item-4,.item-5,
+.item-7,.item-8 {
+    border-right: 3px solid #ffffff;
+}
+
+.player.on {
+    background: #b81a1a;
+    transition: all linear 0.7s;
+}
+
+.game-message {
+    width: 400px;
+    height: 60px;
+    margin: 10px auto;
+    padding: 10px;
+    background: #900ecc;
+    border: 3px solid #fff;
+    border-radius: 5px;
+    font-size: 1.2em;
+    color: #ffffff;
+    text-align: center;
+}
+
+.match {
+    width: 20px;
+    height: 20px;
+    background: #b81a1a;
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: all linear 0.3s;
+    border-radius: 10px;
+    border: 5px solid #900ecc;
+}
+
+.match.on {
+
+    visibility: visible;
+    opacity: 1;
+}
+
+.match.v {
+    width: 20px;
+    height: 100%;
+}
+
+.match.h {
+    width: 100%;
+    height: 20px;
+}
+
+.match.row-0 {
+    top: 15%;
+}
+
+.match.row-1 {
+    top: 48%;
+}
+
+.match.row-2 {
+    top: 80%;
+}
+
+.match.col-0 {
+    left: 15%;
+}
+
+.match.col-1 {
+    left: 48%;
+}
+
+.match.col-2 {
+    left: 80%;
+}
+
+.match.diag-0 {
+    height: 100%;
+    left: 45%;
+    transform: rotate(-45deg);
+}
+
+.match.diag-1 {
+    height: 100%;
+    left: 45%;
+    transform: rotate(45deg);
+}
+
+.try-again {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.try-again.on {
+    visibility: visible;
+    opacity: 1;
+}
+
+.try-again button {
+    width: 300px;
+    margin: auto;
+    padding: 15px;
+    border: none;
+    background: #ffffff;
+    color: #900ecc;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
