@@ -121,6 +121,7 @@ game = {
             $(domItem).text(players[this.player].xo);
             $(domItem).addClass('rotate');
             this.total++;
+            
         } else { 
             this.message('O oponente já marcou esse quadro!');
         }
