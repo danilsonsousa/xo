@@ -25,7 +25,6 @@ game = {
     total: 0,
     tie: false,
     start: function () {
-        this.reset();
         $('#player0 .name').text(players[0].name);
         $('#player1 .name').text(players[1].name);
         $('.player').removeClass('on');
@@ -90,8 +89,9 @@ game = {
         players[this.player].score++;
         this.message(players[this.player].name + " ganhou!");
         
-        $('#player' + this.player + ' .score').text(players[this.player].score);
+        $('.score-' + this.player).text(players[this.player].score);
         $('.try-again').addClass('on');
+        this.updatePlayer();
     },
 
     reset: function () {
@@ -100,23 +100,15 @@ game = {
         this.sequence = [['','',''],['','',''],['','','']];
         this.tie = false;
         this.total = 0;
+
+        this.updatePlayer();
     },
 
     play: function (domItem) {
 
-        this.update();
-
-        $('.player').removeClass('on');
-
         if ($(domItem).text().trim() === '') {
             
-            $('#player' + this.player).addClass('on');
-            
-            if (this.player == 0) {
-                this.player = 1;
-            } else {
-                this.player = 0;
-            }
+            this.updatePlayer();
 
             $(domItem).text(players[this.player].xo);
             $(domItem).addClass('rotate');
@@ -135,17 +127,28 @@ game = {
         //Empate
         if (this.tie) {
             this.message('Deu empate!');
-            $('.player .score').text(players[0].score += 1);
+            $('.score').text(players[0].score += 1);
         }
     },
 
-    message: function (text) {
-        $('.game-popup').addClass('on');
-        $('.game-message').text(text);
+    updatePlayer: function () {
+        $('.player').removeClass('on');
+            
+        if (this.player == 0) {
+            this.player = 1;
+        } else {
+            this.player = 0;
+        }
 
-        $(document).on('click', '.game-popup', function () {
-            $(this).removeClass('on');
-        });
+        $('#player' + this.player).addClass('on');
+    },
+
+    message: function (text) {
+        $('.game-message').text(text).addClass('on');
+
+        setTimeout(function() {
+            $('.game-message').removeClass('on');
+        }, 5000);
     }
     
 };
