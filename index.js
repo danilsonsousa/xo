@@ -24,7 +24,10 @@ game = {
     sequence: [['','',''],['','',''],['','','']],
     total: 0,
     tie: false,
+    winner: '',
     start: function () {
+        this.reset();
+
         $('#player0 .name').text(players[0].name);
         $('#player1 .name').text(players[1].name);
         $('.player').removeClass('on');
@@ -88,10 +91,10 @@ game = {
     match: function () {
         players[this.player].score++;
         this.message(players[this.player].name + " ganhou!");
+        this.winner = this.player;
         
         $('.score-' + this.player).text(players[this.player].score);
         $('.try-again').addClass('on');
-        this.updatePlayer();
     },
 
     reset: function () {
@@ -100,29 +103,26 @@ game = {
         this.sequence = [['','',''],['','',''],['','','']];
         this.tie = false;
         this.total = 0;
-
-        this.updatePlayer();
     },
 
     play: function (domItem) {
 
         if ($(domItem).text().trim() === '') {
-            
-            this.updatePlayer();
 
             $(domItem).text(players[this.player].xo);
             $(domItem).addClass('rotate');
             this.total++;
+
+            var rowIndex = $(domItem).attr('data-row');
+            var itemIndex = $(domItem).attr('data-index');
+            this.sequence[rowIndex][itemIndex] = players[this.player].value;
+
+            this.update();
+            this.updatePlayer();''
             
         } else { 
             this.message('O oponente já marcou esse quadro!');
         }
-        
-        var rowIndex = $(domItem).attr('data-row');
-        var itemIndex = $(domItem).attr('data-index');
-        this.sequence[rowIndex][itemIndex] = players[this.player].value;
-
-        this.update();
 
         //Empate
         if (this.tie) {
