@@ -109,8 +109,8 @@ game = {
         $('.player').removeClass('on');
 
         if ($(domItem).text().trim() === '') {
-
-            $(domItem).text(players[this.player].xo);
+            
+            $('#player' + this.player).addClass('on');
             
             if (this.player == 0) {
                 this.player = 1;
@@ -118,7 +118,7 @@ game = {
                 this.player = 0;
             }
 
-            $('#player' + this.player).addClass('on');
+            $(domItem).text(players[this.player].xo);
             $(domItem).addClass('rotate');
             this.total++;
             
